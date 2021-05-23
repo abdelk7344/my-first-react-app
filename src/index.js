@@ -3,10 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Title from './Title';
+import Recipe from './Recipe';
+
 
 ReactDOM.render(
   <React.StrictMode>
+        <h1>testing</h1>
+    <Title />
+    <Recipe />
     <App />
+
   </React.StrictMode>,
   document.getElementById('root')
 );
