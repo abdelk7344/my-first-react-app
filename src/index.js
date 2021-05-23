@@ -10,13 +10,14 @@ import {Ingred} from './ingrid';
 
 
 ReactDOM.render(
-<div >  
+  <div className="Home">  
 
     <NavBaby/>
-    <Title />
-    <Ingred />
-    <h1>TEST</h1>
-    <Recipe />
+    <Title/>
+    <div id="list">
+      <Ingred/>
+      <Recipe/>
+    </div>
 
 
     </div>,
