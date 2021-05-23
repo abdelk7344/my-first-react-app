@@ -5,16 +5,21 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Title from './Title';
 import Recipe from './Recipe';
+import {NavBaby} from './nav';
+import {Ingred} from './ingrid';
 
 
 ReactDOM.render(
-  <React.StrictMode>
-        <h1>testing</h1>
-    <Title />
-    <Recipe />
-    <App />
+<div >  
 
-  </React.StrictMode>,
+    <NavBaby/>
+    <Title />
+    <Ingred />
+    <h1>TEST</h1>
+    <Recipe />
+
+
+    </div>,
   document.getElementById('root')
 );
 
