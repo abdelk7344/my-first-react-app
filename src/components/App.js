@@ -3,6 +3,7 @@ import NavBaby from './NavBaby'
 import Title from './Title'
 import Ingred from './Ingred'
 import Recipe from './Recipe'
+import List from './List'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Ingred/>
         <Recipe/>
       </div>
+      <List />
     </div>
   );
 }
