@@ -1,28 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './components/App';
 import reportWebVitals from './reportWebVitals';
-import Title from './Title';
-import Recipe from './Recipe';
-import {NavBaby} from './nav';
-import {Ingred} from './ingrid';
 
 
-ReactDOM.render(
-  <div className="Home">  
-
-    <NavBaby/>
-    <Title/>
-    <div id="list">
-      <Ingred/>
-      <Recipe/>
-    </div>
-
-
-    </div>,
-  document.getElementById('root')
-);
+ReactDOM.render(<App />,document.getElementById('root'));
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

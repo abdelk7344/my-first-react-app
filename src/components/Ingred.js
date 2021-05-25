@@ -18,3 +18,4 @@ export class Ingred extends React.Component{
 
     }
 }
+export default Ingred;

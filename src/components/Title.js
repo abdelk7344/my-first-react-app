@@ -1,5 +1,5 @@
 
-import salmon from './Salmon.jpeg';
+import salmon from '../Salmon.jpeg';
 function Title(){
 
     return(

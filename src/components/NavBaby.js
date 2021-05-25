@@ -7,3 +7,5 @@ export class NavBaby extends React.Component{
             </ul>);
     }
 }
+
+export default NavBaby;
