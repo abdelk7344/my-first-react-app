@@ -3,31 +3,30 @@ import React from 'react'
 export class List extends React.Component{
     constructor(){
         super()
-        this.state={list:[]}
-        this.handleSubmit=this.handleSubmit.bind(this)
+        this.state={list:[],id:0}
+        this.onSubmit=this.onSubmit.bind(this)
+    }
+    onSubmit(){
+        this.setState(prevState=>{
+            const stringVal= document.getElementById('input').value;
+            const idVal= prevState.id+1;
+            return{
+                id: idVal,
+                list: prevState.list.concat({stringVal,idVal})
+            }
+
+        })
     }
 
-    handleSubmit(){
-        this.setState(preveState=>{
-            return {
-                list: preveState.list.concat(document.getElementById('input').value)
-            }
-        })
-        
-    }
 
     render(){
         console.log(this.state.list)
-        const listLi= this.state.list.map((item) =>
-            <li>{item}</li>//putting the component for add and delete links
-        )
         return (
         <div>
             <h1>Your To Do List:</h1>
             <input type="text" id="input" name="input"/>
-            <input type="submit" value="Submit" onClick={this.handleSubmit} />
+            <input type="submit" value="Submit" onClick={this.onSubmit}/>
             <ul>
-                {listLi}
             </ul>
         </div>)
     }
