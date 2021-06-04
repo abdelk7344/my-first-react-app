@@ -25,7 +25,7 @@ export class List extends React.Component{
     onDelete(deleteditem){
         this.setState(prevState=>{
 
-
+            
             let updatedArray = prevState.list.filter(function(curritem){
                 return curritem.idVal !== deleteditem.idVal
 
@@ -33,7 +33,8 @@ export class List extends React.Component{
             )
 
             return(
-                {list: updatedArray}
+                {list: updatedArray,
+                showUpdateForm:false}
             )
         }
             
@@ -43,9 +44,15 @@ export class List extends React.Component{
 
     onUpdate(updateItem){
         this.setState(prevState=>{
+            if(prevState.currUpdate.stringVal!==updateItem.stringVal&&prevState.currUpdate.idVal!==updateItem.idVal&&this.state.showUpdateForm){
+                return {  
+                    currUpdate:updateItem
+                }
+            }
             return {  
                 showUpdateForm: !prevState.showUpdateForm,
                 currUpdate:updateItem
+
             }
         
         })
@@ -90,7 +97,7 @@ export class List extends React.Component{
         )} 
             </ul>
 
-            {this.state.showUpdateForm&&<UpdateForm handler={this.childHandler}/>}
+            {this.state.showUpdateForm&&<UpdateForm handler={this.childHandler} name = {this.state.currUpdate.stringVal}/>}
 
         </div>)
     }
