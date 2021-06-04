@@ -1,11 +1,14 @@
 import React from 'react'
+import UpdateForm from './UpdateForm'
 
 export class List extends React.Component{
     constructor(){
         super()
-        this.state={list:[],id:0}
+        this.state={list:[],id:0,showUpdateForm:false,currUpdate:{}}
         this.onSubmit=this.onSubmit.bind(this)
         this.onDelete = this.onDelete.bind(this)
+        this.onUpdate= this.onUpdate.bind(this)
+        this.childHandler = this.childHandler.bind(this)
     }
     onSubmit(){
         this.setState(prevState=>{
@@ -20,8 +23,6 @@ export class List extends React.Component{
     }
 
     onDelete(deleteditem){
-
-
         this.setState(prevState=>{
 
 
@@ -40,6 +41,18 @@ export class List extends React.Component{
 
     }
 
+    onUpdate(updateItem){
+        this.setState(prevState=>{
+            return {  
+                showUpdateForm: !prevState.showUpdateForm,
+                currUpdate:updateItem
+            }
+        
+        })
+    }
+    childHandler(){
+    }
+
 
 
 
@@ -55,12 +68,15 @@ export class List extends React.Component{
         <div>
             <h1>Your To Do List:</h1>
             <input type="text" id="input" name="input"/>
-            <input type="submit" value="Submit" onClick={this.onSubmit}/>
+            <button onClick={this.onSubmit}>Submit</button>
             <ul>
                 {this.state.list.map(
-            (item)=><li>{item.stringVal} <a onClick = {()=>this.onDelete(item)} >Delete</a> </li>
+            (item)=><li>{item.stringVal} <a onClick = {()=>this.onDelete(item)}>Delete</a> <a onClick={()=>this.onUpdate(item)}>Update</a></li>
         )} 
             </ul>
+
+            {this.state.showUpdateForm&&<UpdateForm handler={()=>this.childHandler}/>}
+
         </div>)
     }
 
