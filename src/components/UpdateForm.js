@@ -8,8 +8,8 @@ class UpdateForm extends React.Component{
             <div>
                 <form>
                     <h3>Update form</h3>
-                    <input type = "text"/>
-                    <button onClick={this.props.handler}>Submit</button>
+                    <input id="updateText" type = "text"/>
+                    <button type='button' onClick={this.props.handler}>Submit</button>
 
                 </form>
             </div>

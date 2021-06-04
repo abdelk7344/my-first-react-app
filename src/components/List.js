@@ -51,6 +51,21 @@ export class List extends React.Component{
         })
     }
     childHandler(){
+        this.setState(prevState=>{
+            let newUpdatedArr= this.state.list.map((item)=>{
+                if(item.stringVal===this.state.currUpdate.stringVal&&item.idVal===this.state.currUpdate.idVal){
+                    console.log(true)
+                    const s= document.getElementById('updateText').value;
+                    const i= item.idVal;
+                    return {stringVal: s,idVal: i}
+                }
+                return item
+            }
+            )
+            return{
+                list:newUpdatedArr
+            }
+        })
     }
 
 
@@ -75,7 +90,7 @@ export class List extends React.Component{
         )} 
             </ul>
 
-            {this.state.showUpdateForm&&<UpdateForm handler={()=>this.childHandler}/>}
+            {this.state.showUpdateForm&&<UpdateForm handler={this.childHandler}/>}
 
         </div>)
     }
