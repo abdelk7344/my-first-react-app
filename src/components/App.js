@@ -1,21 +1,22 @@
 import React from 'react'
 import NavBaby from './NavBaby'
-import Title from './Title'
-import Ingred from './Ingred'
-import Recipe from './Recipe'
-import List from './List'
+import HomePage from './HomePage'
+import TodoPage from './TodoPage'
+import AboutPage from './AboutPage'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 function App() {
   return (
-    <div className="Home">  
-      <NavBaby/>
-      <Title/>
-      <div id="list">
-        <Ingred/>
-        <Recipe/>
+    <Router>
+      <div className="appDiv">  
+        <NavBaby/>
+        <Switch>
+          <Route path='/' exact component={HomePage}/>
+          <Route path='/list' exact component={TodoPage}/>
+          <Route path='/about' exact component={AboutPage}/>
+        </Switch>
       </div>
-      <List />
-    </div>
+    </Router>
   );
 }
 

@@ -79,27 +79,20 @@ export class List extends React.Component{
 
 
     render(){
-        console.log(this.state.list)
-
-
-        // let liArray = this.state.list.map(
-        //     (item)=><li>{item.stringVal} <a onClick = {()=>this.onDelete(item)} >delete Button</a> </li>
-        // )
-        
         return (
-        <div>
-            <h1>Your To Do List:</h1>
-            <input type="text" id="input" name="input"/>
-            <button onClick={this.onSubmit}>Submit</button>
-            <ul>
-                {this.state.list.map(
-            (item)=><li>{item.stringVal} <a onClick = {()=>this.onDelete(item)}>Delete</a> <a onClick={()=>this.onUpdate(item)}>Update</a></li>
-        )} 
-            </ul>
+            <div >
+                <h1>Your To Do List:</h1>
+                <input type="text" id="input" name="input"/>
+                <button onClick={this.onSubmit}>Submit</button>
+                <ul className="centeredList">
+                    {this.state.list.map((item)=>
+                        <li key={item.idVal}>{item.stringVal} <a style={{color:"red",fontWeight: "bold"}} onClick = {()=>this.onDelete(item)}>Delete</a> <a style={{color:"blue",fontWeight: "bold"}} onClick={()=>this.onUpdate(item)}>Update</a></li>
+                    )} 
+                </ul>
+                {this.state.showUpdateForm&&<UpdateForm handler={this.childHandler} name = {this.state.currUpdate.stringVal}/>}
+            </div>
+        )
 
-            {this.state.showUpdateForm&&<UpdateForm handler={this.childHandler} name = {this.state.currUpdate.stringVal}/>}
-
-        </div>)
     }
 
 
