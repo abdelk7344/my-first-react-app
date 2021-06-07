@@ -4,8 +4,8 @@ function Title(){
 
     return(
         <div>  
-        <h1> SALMON BABBYYYY</h1>
-        <img className="salmonPic" src={salmon} alt = "salmonPic"/>
+            <h1> SALMON BABBYYYY</h1>
+            <img className="salmonPic" src={salmon} alt = "salmonPic"/>
         </div>
     )
  
