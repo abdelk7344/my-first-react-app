@@ -11,7 +11,7 @@ function App() {
       <div className="appDiv">  
         <NavBaby/>
         <Switch>
-          <Route path='/' exact component={HomePage}/>
+          <Route path='/'  exact component={HomePage}/>
           <Route path='/list' exact component={TodoPage}/>
           <Route path='/about' exact component={AboutPage}/>
         </Switch>
